@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <link href="comments_data/embed_7ec1a3571bbe56514d18c93df3a1c692c33fa67b.css" media="all" rel="stylesheet" data-target="embed">
+      <link href="comments_data/embedded_theme_4_c880cd408bfc11f85bf920b2b9e1030291e02e86.css" media="all" rel="stylesheet" data-target="embedded_theme" data-theme-id="4" data-theme-name="light">
+    <link rel="preload" href="comments_data/break_string-cc617154cd957804f2f6a1f3bc68258c9cdca3d4b9a322bf.js" as="script">
+<script defer="defer" src="comments_data/break_string-cc617154cd957804f2f6a1f3bc68258c9cdca3d4b9a322bf.js"></script>
+
+
+      <title>A Visual Explanation of SQL Joins - blog - Coding Horror Discussion</title>
+
+    <meta id="data-embedded" data-referer="https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">
+    <link rel="preload" href="comments_data/embed-application-4e18c443be26cb7c50c56d1a8f39fcf176af9b4ae8e.js" as="script">
+<script defer="defer" src="comments_data/embed-application-4e18c443be26cb7c50c56d1a8f39fcf176af9b4ae8e.js"></script>
+
+
+    
+  </head>
+  <body>
+    <header class="discourse" data-embed-state="loaded">
+    <a class="button" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/2">Continue Discussion</a>
+  <span class="replies">166 replies</span>
+</header>
+
+    <article class="post" id="post-57756">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/2">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/ShawnW" target="_blank"><img src="comments_data/45_011.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/ShawnW" target="_blank" class="new-user">ShawnW</a>
+        </h3>
+        <p>Funny, I just explained this to a co-worker in the same 
+manner earlier in the week. I guess it never dawned on me that others 
+may have never thought about joins in terms of these diagrams. Good 
+post, Jeff!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57757">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/3">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/capdog" target="_blank"><img src="comments_data/45_037.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/capdog" target="_blank" class="new-user">capdog</a>
+        </h3>
+        <p>Hey Jeff, thanks for the great blog - I thoroughly enjoy reading every single one of your posts.</p>
+<p>Even though I often am familiar with the concepts you talk of, I find
+ the simple manner in which you break down the issues is always a great 
+refresher.</p>
+<p>Keep up the great work.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57758">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/4">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/hacktick" target="_blank"><img src="comments_data/45_023.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/hacktick" target="_blank" class="new-user">hacktick</a>
+        </h3>
+        <p>linked from join (SQL) en wikipedia to your blog entry … your
+ post is much better (or simplistic) than the techtalk on that wikipedia
+ entry <img src="comments_data/wink.png" title=":wink:" class="emoji" alt=":wink:"></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57759">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/5">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Weeble" target="_blank"><img src="comments_data/45_078.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Weeble" target="_blank" class="new-user">Weeble</a>
+        </h3>
+        <p>The post is much simpler than the Wikipedia entry because it 
+omits all the non-trivial cases. All of these examples assume that each 
+entry in table A will be matched by the join predicate to at most one 
+entry in table B, and vice-versa.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57760">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/6">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Brad" target="_blank"><img src="comments_data/45_026.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Brad" target="_blank" class="new-user">Brad</a>
+        </h3>
+        <p>I’m not even sophisticated enough to use databases anymore 
+(my career as a developer has devolved), but when I was, 99% of the time
+ I used inner joins and just thought of it as the data common to both 
+tables.<br>
+Every now and then I wanted some data that didn’t fit that kind of join 
+and I’d do a left outer join to get the data that was “left out”.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57761">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/7">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/GintsP" target="_blank"><img src="comments_data/45_054.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/GintsP" target="_blank" class="new-user">GintsP</a>
+        </h3>
+        <p>Speaking about Oracle (+) syntax and LEFT/RIGHT [OUTER] JOIN syntax there is a difference. And it is nicely described here<br>
+<a href="http://www.oreillynet.com/pub/a/network/2002/10/01/whatsinacondition.html" rel="nofollow noopener" target="_blank">http://www.oreillynet.com/pub/a/network/2002/10/01/whatsinacondition.html</a></p>
+<p>Speaking about ANSI syntax where everyone has to explicitly say to 
+make CROSS JOIN to get Cartesian product at least in Oracle it is not 
+true, using stupid (at least to my mind) NATURAL JOIN clause one can 
+easily get CROSS JOIN and also JOIN on such columns he never thought it 
+really is. I’ve blogged about it here<br>
+<a href="http://gplivna.blogspot.com/2007/10/natural-joins-are-evil-motto-if-you.html" rel="nofollow noopener" target="_blank">http://gplivna.blogspot.com/2007/10/natural-joins-are-evil-motto-if-you.html</a><br>
+Don’t know wehether it is just Oracle specific or as per ANSI SQL standard.</p>
+<p>Speaking about INNNER JOINS as a Cartesian product and then 
+eliminating all unnecessary rows, at least the real mechanics in Oracle 
+is absolutely different, there are following possibilities for doing 
+them:<br>
+NESTED LOOPS (OUTER)<br>
+HASH JOIN (OUTER)<br>
+MERGE JOIN (OUTER)<br>
+and for Cartesian product it uses MERGE JOIN CARTESIAN, and that’s when usually the real trouble (filling temp) starts <img src="comments_data/wink.png" title=":wink:" class="emoji" alt=":wink:"><br>
+The real choice among Nested loops, hash join or merge join at least 
+depends on data, statistics, available memory for a session, explicitly 
+given available memory for hash joins or merge joins (btw there is 
+possibility to give for one but not for other), system workload, hints, 
+initialization parameters allowing ceratain join types (at least for 
+hash joins) and probably something other <img src="comments_data/slight_smile.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57762">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/8">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/dt11" target="_blank"><img src="comments_data/45_031.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/dt11" target="_blank" class="new-user">dt<wbr>​11</a>
+        </h3>
+        <p>Hi Jeff,</p>
+<p>I think your illustrations make one BIG assumption: Table A and Table
+ B contain unique rows. If either table contained duplicate matching 
+records, then the whole Venn diagram will not hold (the cardinality of 
+the sets will not add up). I am afraid this visual explanation will lead
+ some to think that you can use SQL joins to do filter operations which 
+shouldn’t be done this way.</p>
+<p>Although it’s nice attempt to explain SQL joins, overall I think it is misleading.</p>
+<p>-dt</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57763">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/9">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/AlexC" target="_blank"><img src="comments_data/45_022.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/AlexC" target="_blank" class="new-user">AlexC</a>
+        </h3>
+        <p>One of the worst three months of my CS training was a class 
+ostensibly on database theory which was really a boot-camp in SQL 
+syntax, taught by a Johnny-one-note professor who thought SQL and RDMSs 
+were the greatest invention of mankind.</p>
+<p>This experience turned me off databases for 15 years until one day in
+ the shower I realized that joins were analogous to set theory, in a 
+rough way.  (Yes they are, all you naysayers!  “Give me everything 
+that’s there AND there” or “Give me everything that’s there OR there” 
+may not handle all the possible inputs, but it’s a good jumping off 
+point for explaining “inner” and “outer.”  And who came up with that 
+stupid, arbitrary terminology anyway?)</p>
+<p>I still think SQL is an awful language, though, and relational 
+databases are an ugly hack mandated by hardware limitations trumping 
+elegant design.  OLAP “cubes” are so clearly a better solution—so 
+intuitively clear and obvious—the natural generalization to higher 
+dimensions of the flat-file database.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57764">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/10">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Kevin" target="_blank"><img src="comments_data/45_075.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Kevin" target="_blank" class="new-user">Kevin</a>
+        </h3>
+        <p>To me, a Cartesian Product would be best illustrated by both circles being blank.</p>
+<p>Granted, all the SQL gurus will probably spit feathers at my 
+outrageous suggestion, but for me, it’s a beautifully simple method of 
+explaining simple joins and I’ll be using it in me technical 
+documentation!</p>
+<p>Thanks for this article, Jeff.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57765">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/11">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Steve" target="_blank"><img src="comments_data/45_014.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Steve" target="_blank" class="new-user">Steve</a>
+        </h3>
+        <p>Jeff, you are <em>the</em> master of well crafted blog posts 
+that sometimes don’t say much, but somehow gather scads of inane 
+comments!  This one and the previous post (on exercise) are great 
+examples.</p>
+<p>Now, not all of your posts are in this category, thank God!  But I’m watching you…</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57766">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/12">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Catto" target="_blank"><img src="comments_data/45_084.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Catto" target="_blank" class="new-user">Catto</a>
+        </h3>
+        <p>Hey Now Jeff,<br>
+These diagrams make me think of when learning of classic boolean logic.<br>
+Coding Horror Fan,<br>
+Catto</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57767">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/13">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/AndreasK" target="_blank"><img src="comments_data/45_010.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/AndreasK" target="_blank" class="new-user">AndreasK</a>
+        </h3>
+        <p>Well, the database practitioner rejoice, and the set relationists cringe.</p>
+<p>There is only one join, which is the cross product (each row of the 
+first table concatenated to each row of the second table). The INNER 
+JOIN example only discards some rows by the where clause, otherwise it 
+is (or should be) the same as the CROSS JOIN. The outer join is a hack 
+that isn’t very firmly rooted in relational algebra.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57768">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/14">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/jan_g7" target="_blank"><img src="comments_data/45_083.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/jan_g7" target="_blank" class="new-user">jan_<wbr>​g<wbr>​7</a>
+        </h3>
+        <p>Nice Jeff, thank you so much for this post!</p>
+<p>I always got confused with JOINS and how they work, that’s one of 
+these things that are hard to be expained in a book or a manual.</p>
+<p>But these diagrams make it pretty clear, they are great!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57769">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/15">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/MikeW" target="_blank"><img src="comments_data/45_013.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/MikeW" target="_blank" class="new-user">MikeW</a>
+        </h3>
+        <p>Don’t forget EXCEPT! Which was (and additionally still is) 
+MINUS in Oracle. For years I think Oracle was the only RDBMS that 
+implemented it and I had, in nearly 20 years, used it all of, oh, once. 
+Until last week, when I used it the second time.</p>
+<p>It’s the same as your fourth example: instead of</p>
+<pre><code>SELECT * FROM TableA
+LEFT OUTER JOIN TableB
+ON TableA.name = TableB.name
+WHERE TableB.id IS null
+</code></pre>
+<p>we can say</p>
+<pre><code>SELECT * FROM TableA
+MINUS
+SELECT * FROM TableB
+</code></pre>
+<p>(I used the old Oracle operator - it’s more expressive to my eyes)</p>
+<p>Not every platform implements the operator yet: MySQL (which I just 
+checked) doesn’t, for example. MS SQL Server 2005 does. SQLIte? Hang on …
+  yup, that works in v3 at least.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57770">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/16">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/KG145" target="_blank"><img src="comments_data/45_073.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/KG145" target="_blank" class="new-user">KG<wbr>​145</a>
+        </h3>
+        <p>Very strange. In my “Database Management” class at Arizona 
+State University - a student asked about Join’s and my professor said “I
+ never use them. Just stick with the WHERE syntax”.</p>
+<p>This was a more theoretical course though. We spent FAR more time in 
+relational algebra / calculus and algorithms for ensuring atomic 
+transactions than we did in more practical stuff like database 
+normalization.</p>
+<p>Hmm… lots of people say the theoretical stuff is a waste of time. For
+ me, well, I almost became a math major instead of CS, so I find the 
+theoretical stuff more interesting.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57771">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/17">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/joske" target="_blank"><img src="comments_data/45_035.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/joske" target="_blank" class="new-user">joske</a>
+        </h3>
+        <p>If you don’t user any join-feature and just do “select * from TableA, TableB”, you have your cross-join.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57772">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/18">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/david16" target="_blank"><img src="comments_data/45_040.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/david16" target="_blank" class="new-user">david<wbr>​16</a>
+        </h3>
+        <p>Venn diagrams.</p>
+<p>wow, so simple, so obvious; how come I haven’t seen this anywhere else?</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57773">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/19">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Rock" target="_blank"><img src="comments_data/45_007.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Rock" target="_blank" class="new-user">Rock</a>
+        </h3>
+        <p>Hi Jeff<br>
+that’s an nice diagram and a new way of presenting the sql join function.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57774">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/20">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/BuggyF" target="_blank"><img src="comments_data/45_008.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/BuggyF" target="_blank" class="new-user">BuggyF</a>
+        </h3>
+        <p>Yet another case of the blind leading the blind (down the 
+blind alley of ignorance and arrogance); the original, BTW.  At least 
+you made and attempt to fix it up.  But reading all those “now I get it”
+ comments, makes it clearer why Yahoos like GW Bush get away with bald 
+faced lies.  “People believe what they want to believe, when it makes no
+ sense at all”/Mellencamp.</p>
+<p>Now we’ll have another gaggle of folks running around fawning on Ambler and Fowler.  Gad.  The Horror, the Horror.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57775">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/21">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Chris" target="_blank"><img src="comments_data/45_030.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Chris" target="_blank" class="new-user">Chris</a>
+        </h3>
+        <p>Thanks to this I’m now skipping merrily down the path of BOM 
+management and stock control, rather than flicking furiously through 
+Teach-yourself books, thanks</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57777">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/23">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Rasmus" target="_blank"><img src="comments_data/45_069.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Rasmus" target="_blank" class="new-user">Rasmus</a>
+        </h3>
+        <p>Excellent post.</p>
+<p>Everyone who has followed (and passed) a computer science beginner course should be able to understand this.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57778">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/24">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/CR13" target="_blank"><img src="comments_data/45_068.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/CR13" target="_blank" class="new-user">CR<wbr>​13</a>
+        </h3>
+        <p>It’s important to note that when joining two tables on 
+non-indexed columns most databases perform the equivalent of a cross 
+join and then weed out the rows that don’t match the join/where 
+criteria.  While this doesn’t really impact the query results, it has a 
+big impact on query performance.</p>
+<p>In MySql you can run: explain my query to determine if the query is using indexes and review performance of all your queries.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57779">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/25">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Wombat" target="_blank"><img src="comments_data/45_004.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Wombat" target="_blank" class="new-user">Wombat</a>
+        </h3>
+        <p>Perfect timing. I just had a new project thrown on my desk 
+that will require working with SQL - something I know little about and 
+have avoided. Terms that have glazed my eyes in weeks past suddenly make
+ sense.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57780">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/26">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/MattW" target="_blank"><img src="comments_data/45_041.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/MattW" target="_blank" class="new-user">MattW</a>
+        </h3>
+        <p>dt is 100% right.  You really need a disclaimer that 
+indicates that your set diagrams only hold when there is at best a 
+one-to-one correspondence between join criteria values in the tables.</p>
+<p>The second you have two or three pirates in one of the tables (an <em>extremely</em> common real-world scenario, probably much more common than the simplified case you show here) your Venn diagrams break down.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57781">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/27">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/ThomasB" target="_blank"><img src="comments_data/45_002.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/ThomasB" target="_blank" class="new-user">ThomasB</a>
+        </h3>
+        <p>What a great way to explain JOINs, I’m certain there are 
+thousands of students that would benefit from this… a picture is truly 
+worth a thousand words ( especially in cases like this ).</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57782">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/28">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Joe_Beam" target="_blank"><img src="comments_data/45_048.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Joe_Beam" target="_blank" class="new-user">Joe_<wbr>​<wbr>​Beam</a>
+        </h3>
+        <p>I always use left outer joins and never really liked the 
+right outer join. Is there anytime they are useful? It always seems bass
+ ackwards to use a right outer join.</p>
+<p>Of course other developers use visual query designers which use right outer joins…</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57783">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/29">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Ricardo" target="_blank"><img src="comments_data/45_024.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Ricardo" target="_blank" class="new-user">Ricardo</a>
+        </h3>
+        <p>Is it just me or Oracle’s syntax is much simpler than that? Like:</p>
+<pre><code>select * from TableA, TableB
+where TableA.Name = TableB.Name
+</code></pre>
+<p>I’m familiar with both, both I always liked that one better.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57784">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/30">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Jay_R__Wren5" target="_blank"><img src="comments_data/45_071.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Jay_R__Wren5" target="_blank" class="new-user">Jay_<wbr>​R__<wbr>​<wbr>​Wren<wbr>​5</a>
+        </h3>
+        <p>Jeff,</p>
+<p>This is great for those SQL types that didn’t take a set theory, relational calculus or even discrete math in college.</p>
+<p>I’d love to see you visualize a cross product <img src="comments_data/slight_smile.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57785">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/31">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/MattW" target="_blank"><img src="comments_data/45_041.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/MattW" target="_blank" class="new-user">MattW</a>
+        </h3>
+        <p>Ricardo, that syntax is pre-ANSI.  Most databases still 
+support it but the advantages of the INNER JOIN, etc. syntax are: it 
+makes the queries more portable across databases; it allows separation 
+of the join criteria from the filter criteria, which improves 
+readability; and allows full outer joins without syntactic hacks.</p>
+<p>Another huge benefit is that if you want to do a CROSS (Cartesian) 
+JOIN, and usually you don’t, you have to call it out specifically.  In 
+the old syntax, if you screwed up the WHERE clause you could get wildly 
+huge resultsets due to inadvertent Cartesian joins.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57786">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/32">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Ed_Kenny" target="_blank"><img src="comments_data/45_088.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Ed_Kenny" target="_blank" class="new-user">Ed_<wbr>​<wbr>​Kenny</a>
+        </h3>
+        <p>Joe Beam,</p>
+<p>The only use I have found for RIGHT OUTER is when i’m too lazy to reorder my query. <img src="comments_data/wink.png" title=":wink:" class="emoji" alt=":wink:"> Other then that it makes more sense to use only one type.</p>
+<p>I use LEFT JOIN too, as do my company.</p>
+<p>I agree with other responses here Jeff, while it’s a really nice 
+simple way to represent joins, it doesn’t handle many to many or one to 
+many very well and let’s not talk about malformed joins.</p>
+<p>It’s a good primer, but should perhaps contain a warning.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57787">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/33">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/codinghorror" target="_blank"><img src="comments_data/36371_2.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/codinghorror" target="_blank" class="staff">codinghorror</a>
+        </h3>
+        <p>The commenters pointing out that the diagrams break down in 
+case of multiple and or duplicate results, are absolutely right. I was 
+actually thinking of joins along the primary key, which tends to be 
+unique by definition, although the examples are not expressed that way.</p>
+<p>Like the cartesian or cross product, anything that results in more 
+rows than you originally started with does absolutely breaks the whole 
+venn diagram concept. So keep that in mind.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57788">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/34">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Wyatt" target="_blank"><img src="comments_data/45_036.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Wyatt" target="_blank" class="new-user">Wyatt</a>
+        </h3>
+        <p>Except that venn diagrams explain set logic, and SQL Joins have very little to do with set logic.</p>
+<p>Scary how many people are agreeing with this.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57789">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/35">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Matt" target="_blank"><img src="comments_data/45_050.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Matt" target="_blank" class="new-user">Matt</a>
+        </h3>
+        <p>Actually, I’ve always been a bit shaky on joins myself. I 
+always have to look them up any time I need to using a join that isn’t a
+ standard filtered cross product. But seeing this visual guide has 
+really helped me to grasp it much better. I just went back and read the 
+Wikipedia entry for joins and it makes complete sense to me now. Before 
+seeing this visual representation I might have just glazed over when 
+reading the Wikipedia article.</p>
+<p>So even if they aren’t exactly right having a visual representation has really helped me to understand what is going on.</p>
+<p>Thanks!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57790">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/36">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Joshua" target="_blank"><img src="comments_data/45_042.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Joshua" target="_blank" class="new-user">Joshua</a>
+        </h3>
+        <p>A nice trick is you can write arbitrary filters in the ON 
+clause of the join. I use this when writing truly awful joins or when I 
+need the left join with an already filtered table.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57791">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/37">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/JeffreyB" target="_blank"><img src="comments_data/45_005.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/JeffreyB" target="_blank" class="new-user">JeffreyB</a>
+        </h3>
+        <p>From one Jeff to another, this is a brilliant essay on a 
+simple topic - simple but vexing to newbies. I am a DB2 DBA, and 
+explaining outer joins to the newbie developers I encounter constantly 
+will be much easier with materials like this. Thanks, keep it coming.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57792">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/38">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Jeff" target="_blank"><img src="comments_data/45_080.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Jeff" target="_blank" class="new-user">Jeff</a>
+        </h3>
+        <p>I have never seen such a good illustration of SQL joins.  Good work.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57793">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/39">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Sven_Groot" target="_blank"><img src="comments_data/45_072.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Sven_Groot" target="_blank" class="new-user">Sven_<wbr>​<wbr>​Groot</a>
+        </h3>
+        <p>I must agree that while the diagrams are a fairly good 
+illustrations of what happens with a join, they’re not Venn diagrams in 
+the strict sense because that’s just not what’s happening. What the 
+first diagram says to me is that you get all records that are both in 
+set A and set B (aka intersection). That’s just not true. You get a set 
+of new records, that are neither in set A nor in set B, but they contain
+ a combination of the attributes of both sets.</p>
+<p>Aaron G: joins are conceptually a special case of the cartesian 
+product. How the database server actually computes them is another 
+matter entirely.</p>
+<p>Conceptually, in relational algebra, an inner join is a cross product
+ followed by a selection on the join condition. That’s a terribly 
+inefficient way to compute it, but conceptually, that’s what it is.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57794">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/40">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Lachlan_McD" target="_blank"><img src="comments_data/45_043.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Lachlan_McD" target="_blank" class="new-user">Lachlan_<wbr>​<wbr>​McD</a>
+        </h3>
+        <p>The morons running my database fundamentals class at my 
+university thought that teaching the Cartesian product as a method of 
+joining, then filtering the results, was a valid alternative to the 
+insanely simple inner join. So many poor students are going to have a 
+hard time in the industry as a result.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57795">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/41">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Powerlord" target="_blank"><img src="comments_data/45_087.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Powerlord" target="_blank" class="new-user">Powerlord</a>
+        </h3>
+        <p>Jon Raynor:<br>
+Out of curiosity, but what databases other than Oracle support + for joins?</p>
+<p>Anyway, I prefer the “TableA a INNER JOIN TableB b ON a.something = 
+b.somethingelse” syntax over “TableA a, TableB b WHERE a.something = 
+b.somethingelse”</p>
+<p>(Most DBs also support “USING(something)” instead of “ON a.something = b.something” if the columns have the same name)</p>
+<p>Many DBs will throw an error if I accidently omit the ON statement 
+instead of giving me a cross join that I didn’t want.  I imagine that 
+the query parser would also parse it faster, as I specify up front which
+ type of join I’m doing; the query parser doesn’t have to figure it out.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57797">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/43">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Steve" target="_blank"><img src="comments_data/45_014.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Steve" target="_blank" class="new-user">Steve</a>
+        </h3>
+        <p>Big deal, SQL finally caught up with the 1980’s.  Used a very
+ fine DBMS and language, NOMAD2, on mainframes that did this stuff but 
+only much better and more thoroughly.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57798">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/44">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/LigayaT" target="_blank"><img src="comments_data/45_064.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/LigayaT" target="_blank" class="new-user">LigayaT</a>
+        </h3>
+        <p>nicely done. Though I do have to admit to finding it humorous
+ that what started out as a fast, dirty way to try to clarify to someone
+ (on an IRC channel) why they were getting the wrong information for a 
+join now has others correcting and linking to me.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57799">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/45">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Barry" target="_blank"><img src="comments_data/45_055.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Barry" target="_blank" class="new-user">Barry</a>
+        </h3>
+        <p>Bindun!</p>
+<p><a href="http://www.khankennels.com/blog/index.php/archives/2007/04/20/getting-joins/" rel="nofollow noopener" target="_blank">http://www.khankennels.com/blog/index.php/archives/2007/04/20/getting-joins/</a></p>
+<p>Nice post though <img src="comments_data/wink.png" title=":wink:" class="emoji" alt=":wink:"></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57800">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/46">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/RevMike" target="_blank"><img src="comments_data/45_074.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/RevMike" target="_blank" class="new-user">Rev<wbr>​Mike</a>
+        </h3>
+        <p>“I was under the impression that INNER JOINs use a hash match
+ internally (in fact, I’m quite certain of this). CROSS JOINs obviously 
+don’t. Therefore I don’t see how it’s reasonable to say that an IJ is 
+just a special case of the CJ. I suppose in bread-and-butter set theory,
+ where there’s no notion of a hash or an index, this could work, but 
+this is the world of CS, where the clean academic solution is almost 
+never the most practical one. The IJ you speak of is the naivest 
+possible algorithm, only used when there are no indexes (and if you’re 
+designing databases without any indexes, well… stop designing 
+databases).”  – Aaron G</p>
+<p>An IJ is defined as being the equivalent of a filtered CJ.  The fact 
+that this would not be a reasonable implementation does not make a 
+difference.</p>
+<p>IJs are ABSOLUTELY NOT implemented exclusively with hash algorithms. 
+Sort merge algorithms and nested loop algorithms are used frequently.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57801">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/47">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/MichaelC" target="_blank"><img src="comments_data/45_062.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/MichaelC" target="_blank" class="new-user">MichaelC</a>
+        </h3>
+        <p>Jeff:</p>
+<p>Nice illustration. I think your example would be minutely more 
+readable if the left-hand table had an ID column containing values 
+1,2,3,4 (as it does) but the right-hand table had an ID column 
+containing values A,B,C,D (instead of numbers). It just makes that tiny 
+bit easier to tell  what’s what by avoiding the two 
+similar-looking-but-different columns.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57802">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/48">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/JeffF" target="_blank"><img src="comments_data/45_006.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/JeffF" target="_blank" class="new-user">JeffF</a>
+        </h3>
+        <p>Very nice article. I use a Sqlite database (via the command 
+line) to manage my database of comics and this would have been a very 
+nice thing to have when I started out. Hopefully, this will help people 
+in grasping SQL joins.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57803">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/49">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Shog9" target="_blank"><img src="comments_data/45_056.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Shog9" target="_blank" class="new-user">Shog<wbr>​9</a>
+        </h3>
+        <p>I love it. The grumpy comments, that is. Plenty of complaints
+ that this is too simplistic a view to be useful, nary a link to 
+anything meatier.</p>
+<p>And SQL-addicts wonder why everyone else who has to deal with RDBS 
+jumps at the first library that lets them treat them as anything other 
+than RDBS…</p>
+<p>(just finished re-working a big fat chunk of code originally written 
+to pull all tables into memory and iteratively query, join, and sort 
+them - even an ultra-simplistic understanding would have done someone a 
+ton of good)</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57804">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/50">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/willd" target="_blank"><img src="comments_data/45_090.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/willd" target="_blank" class="new-user">willd</a>
+        </h3>
+        <p>The Oracle (+), actually predates Oracle’s usage, was because when implemented there was ANSI no outer join syntax.<br>
+In Oracle 8, they added the ANSI syntax.  No one should be using the old
+ syntax so hopfully you will not being seeing it out in the wide.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57806">
+      <a title="October 12, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/52">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Andrew" target="_blank"><img src="comments_data/45_044.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Andrew" target="_blank" class="new-user">Andrew</a>
+        </h3>
+        <p>While this is an interesting example of these kinds of join, I
+ have found that in practice I almost never need anything other than 
+left/inner join.  10 years of practice, and it’s not the worlds most 
+complicated sql most of the time, but there it is.  Thank GOD that 
+stupid thing didn’t illustrate “RIGHT” joins too!</p>
+<p>The first “left outer join” is the same as just “left join”.  The second one is the same as well, just put “<a href="http://b.id/" rel="nofollow noopener" target="_blank">b.id</a>
+ is null” in the where.  And please don’t anyone tell me that the 
+optimizer isn’t going to figure that out (or do the same thing with the 
+outer.)  Well, maybe it won’t if it is MySQL, but thats why you don’t 
+use that.</p>
+<p>Die “outer”, die!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57807">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/53">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/ShawnW" target="_blank"><img src="comments_data/45_011.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/ShawnW" target="_blank" class="new-user">ShawnW</a>
+        </h3>
+        <p>Excellent visual representation. This should help the novice 
+see a concrete picture in their mind of the different joins.  While LINQ
+ isn’t quite set based (but close) these same visualizations would work 
+there too.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57808">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/54">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Mandar" target="_blank"><img src="comments_data/45_009.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Mandar" target="_blank" class="new-user">Mandar</a>
+        </h3>
+        <p>Excellent article.</p>
+<p>Thanks a lot.</p>
+<p>can you write something similar for indexes.</p>
+<p>mpunaskar at gmail dot com</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57809">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/55">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/DavidG" target="_blank"><img src="comments_data/45_019.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/DavidG" target="_blank" class="new-user">DavidG</a>
+        </h3>
+        <p>Something you may or may not know. . . .</p>
+<p>During the late 70’s Maths was re-packaged to include</p>
+<p>Venn Diagrams<br>
+Matrices</p>
+<p>and so on,<br>
+with the idea of preparing for the coming of computers.<br>
+At least in England that happened…</p>
+<p>What they teach now is hard for me to determine, as most victims of 
+the educational system can not count out the correct change in a shop.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57810">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/56">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Will_Harris" target="_blank"><img src="comments_data/45_039.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Will_Harris" target="_blank" class="new-user">Will_<wbr>​<wbr>​Harris</a>
+        </h3>
+        <p>Wow man, your design is stellar.  Content is great too…you’ve got a new reader.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57811">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/57">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Terry_Smith" target="_blank"><img src="comments_data/45_053.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Terry_Smith" target="_blank" class="new-user">Terry_<wbr>​<wbr>​Smith</a>
+        </h3>
+        <p>Holy crap this is WAY over due! I’ve read TONS of SQL books and NONE of them had this simple diagram!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57812">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/58">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Tokes" target="_blank"><img src="comments_data/45_085.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Tokes" target="_blank" class="new-user">Tokes</a>
+        </h3>
+        <p>I think the Cartesian equation or Cross Product in Venn Diagram form would be both circles combining to form a sphere.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57813">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/59">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/smackfu1" target="_blank"><img src="comments_data/45_066.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/smackfu1" target="_blank" class="new-user">smackfu<wbr>​1</a>
+        </h3>
+        <p>Interesting.  I find joins to be pretty obvious personally.  
+Fundamentally, you have two sets of rows, and you’re matching them up by
+ some criteria.  In an inner join, you only take rows that match up.  In
+ a left outer join, you take all the ones from the left, plus the ones 
+from the right that match.  In a right outer join, the opposite.  If you
+ have multiple matches, you take all possible combinations of them.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57814">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/60">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/MitchellH" target="_blank"><img src="comments_data/45_076.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/MitchellH" target="_blank" class="new-user">MitchellH</a>
+        </h3>
+        <p>Thank you! I’ve been using SQL for so long and have many books on SQL and I have never seen such simple examples. I love it!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57815">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/61">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Steve" target="_blank"><img src="comments_data/45_014.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Steve" target="_blank" class="new-user">Steve</a>
+        </h3>
+        <p>The reason many people who do DB development have such a 
+inadequate understanding of this simple topic is because the SQL 
+language is an inadequate tool to try to absorb it from.  So, if you 
+never were taught this in school or on the job, it’s kind of a surprise.</p>
+<p>Some DBMS’ has syntax with more descriptive verbs (e.g., ‘Merge’, 
+‘Subset’, ‘Reject’), and Venn diagrams as well in the vendor 
+documentation.</p>
+<p>SQL 2005 is an improvement over 2000.  But the sad fact is is many 
+people learn about relational algebra by writing SQL statements.</p>
+<p>A less pretty version of much of what Jeff is saying can be found here:</p>
+<p><a href="http://db.grussell.org/section010.html" rel="nofollow noopener" target="_blank">http://db.grussell.org/section010.html</a></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57816">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/62">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Matt" target="_blank"><img src="comments_data/45_050.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Matt" target="_blank" class="new-user">Matt</a>
+        </h3>
+        <p>With all respect to Jeff Atwood, beware if you’ve read this 
+post and think, “wow, that’s easy – why did noone explain it like that 
+before?” Well, there’s a reason why so many SQL tutorials and books 
+don’t use these diagrams – they’re an inadequate explanation of what 
+database joins are all about.</p>
+<p>Joins are indeed analogous to set operations, but it is only an 
+analogy. Understand what’s really going on, or you will get burned when 
+you actually have to use the things.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57817">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/63">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/RobCromar" target="_blank"><img src="comments_data/45_049.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/RobCromar" target="_blank" class="new-user">Rob<wbr>​Cromar</a>
+        </h3>
+        <p>Very nice first post on the subject. I think many of the 
+comments are valid and I think it would be good to continue this as a 
+series that builds up the more complex issues of SQL joins.</p>
+<p>I, who learned this stuff the hard way, really apprecieate these primers!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57818">
+      <a title="October 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/64">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Steve" target="_blank"><img src="comments_data/45_014.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Steve" target="_blank" class="new-user">Steve</a>
+        </h3>
+        <p>If only someone had explained SQL to me like this when I started… great blog.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57820">
+      <a title="October 14, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/66">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/raveman" target="_blank"><img src="comments_data/45_065.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/raveman" target="_blank" class="new-user">raveman</a>
+        </h3>
+        <p>very cool visualisation, please do more of that</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57821">
+      <a title="October 14, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/67">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/WesleyT" target="_blank"><img src="comments_data/45_047.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/WesleyT" target="_blank" class="new-user">WesleyT</a>
+        </h3>
+        <p>the problem with venn diagrams is that a rdbms table is not the same thing as a set.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57822">
+      <a title="October 15, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/68">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Andy" target="_blank"><img src="comments_data/45_022.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Andy" target="_blank" class="new-user">Andy</a>
+        </h3>
+        <p>Great visual explanation.  I’ve added that to my list of 
+reference bookmarks for when I (often) forget the nature of each SQL 
+join type.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57823">
+      <a title="October 15, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/69">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/WaterBreath" target="_blank"><img src="comments_data/45.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/WaterBreath" target="_blank" class="new-user">Water<wbr>​Breath</a>
+        </h3>
+        <p>You’re right Jeff.</p>
+<p>This is a useful explanation, as far as getting people to understand 
+joins in terms of something they already understand (rudimentary set 
+theory).  However, it should be made clear that this is not what is 
+meant by the statement that “the relational database model is based on 
+set theory”.  For a long time, I thought I understood that statement 
+because I had this Venn-diagram understanding of joins.</p>
+<p>Joins do not map directly to the basic additive operations of set 
+theory (union, intersect, difference), which create new sets by way of 
+simply including or excluding elements of other sets.  There are ways to
+ get those in SQL, but it involves chaining UNION and MINUS statements.</p>
+<p>Joins, rather, are mapping operations, which create new sets by 
+taking an element from each set, according to a set of rules, and 
+lumping them together in a new element for the new set that is actually 
+itself a small set containing the original two elements from the other 
+sets.</p>
+<p>If A is an additive set operation (representable by a Venn diagram), 
+then the result of A on sets X and Y is a set of members of X and Y.</p>
+<p>A(X, Y) = {x1, y1, x2, x3, y4, y5, …}</p>
+<p>In database terms, each element of the resulting set is simply a row from either X or Y.</p>
+<p>In real-world terms, it’s like sorting jelly beans.  Throw them all 
+into a bucket, through a sieve.  The sieve eliminates all but the 
+appropriate shaped ones, but what gets through is still what you started
+ with: an assortment of jellybeans.</p>
+<p>If B is a mapping set operation (representable by a line-drawing 
+matching question), then the result of B on sets X and Y is a set of 
+sets each containing a member from X and a member of Y.</p>
+<p>B(X, Y) = {{x1,y1}, {x2,y2}, {x3,y3}, …}</p>
+<p>In database terms, each element of the resulting set is a new type of
+ row that is a lumping together of a row from X and a row from Y.</p>
+<p>In real-world terms, an example would be taking a bucket of oranges 
+and a bucket of apples, and pulling out pairs of one of each that are 
+the same size, putting the pairs together in little bags, and then 
+putting those bags into a third bucket.  You don’t get a bucket of 
+apples and oranges.  You get a bucket of pairs of an apple and an 
+orange.</p>
+<p>Looking at it this way, it should be reasonably easy to see that 
+there is a fundamental difference between joins and the simple 
+union/intersect/difference set operations.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57824">
+      <a title="October 15, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/70">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/cloud9ine" target="_blank"><img src="comments_data/45_046.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/cloud9ine" target="_blank" class="new-user">cloud<wbr>​9ine</a>
+        </h3>
+        <blockquote>
+<p>Except that venn diagrams explain set logic, and SQL Joins have very little to do with set logic.</p>
+<p>Scary how many people are agreeing with this.</p>
+</blockquote>
+<p>My thoughts exactly!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57825">
+      <a title="October 15, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/71">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/JF15" target="_blank"><img src="comments_data/45_012.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/JF15" target="_blank" class="new-user">JF<wbr>​15</a>
+        </h3>
+        <p>Jeff, this is great!  How about visually explaining why you 
+have SELECT all the columns you are GROUP-ing by?  I always have a hard 
+time explaining that one to people!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57826">
+      <a title="October 15, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/72">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Robin_Day" target="_blank"><img src="comments_data/45_021.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Robin_Day" target="_blank" class="new-user">Robin_<wbr>​<wbr>​Day</a>
+        </h3>
+        <p>I’m afraid this concept is misleading on the reasons mentioned by Sven Groot.</p>
+<p>The result of a join is not those items in table A and those items in
+ table B, it is a “joined” combination of the two. The diagrams you have
+ drawn are set diagrams and are created in SQL using the set operators 
+UNION and INTERSECT.</p>
+<p>Joins are a completely different concept which I believe are best 
+explained using just the table outputs you have above without adding the
+ incorrect venn diagrams.</p>
+<p>JF, the explanation behind SELECT and GROUP BY can be described simply.</p>
+<pre><code>SELECT COUNT(*) FROM People
+-- This will return a count of 100 people
+
+SELECT EyeColour, COUNT(*) FROM People GROUP BY EyeColour
+-- This will return Blue 20, Green 50, Brown 30
+
+SELECT COUNT(*) FROM People GROUP BY EyeColour
+-- This will return 20, 50, 30 whilst this contains the counts that you are looking for, they are useless as there is no relation to each count and what the represent.
+</code></pre>
+
+      </div>
+    </article>
+    <article class="post" id="post-57827">
+      <a title="October 15, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/73">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/james_maida" target="_blank"><img src="comments_data/45_028.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/james_maida" target="_blank" class="new-user">james_<wbr>​maida</a>
+        </h3>
+        <p>Assuming Pirate and Ninja are identical records in both 
+tables, the very first thing that came to mind as what result I would 
+want when I join Tables A  B was</p>
+<p>Pirate<br>
+Monkey<br>
+Ninja<br>
+Spaghetti<br>
+Rutabaga<br>
+Darth Vader</p>
+<p>This seems to be the intuitive meaning of join. Venn’s don’t work.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57828">
+      <a title="October 16, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/74">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Daniel" target="_blank"><img src="comments_data/45_077.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Daniel" target="_blank" class="new-user">Daniel</a>
+        </h3>
+        <p>This is a very likable article,I personally really like the way you’ve done this…</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57829">
+      <a title="October 18, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/75">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Dad" target="_blank"><img src="comments_data/45_059.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Dad" target="_blank" class="new-user">Dad</a>
+        </h3>
+        <p>It never ceases to amaze me how many folks become “experts” 
+on a technical topic once somebody takes the time to write about one.</p>
+<p>I give props to the author of the article presented here. I needed to
+ understand this information, and it was put to me visually in a way I 
+could parse quite easily.</p>
+<p>As for the folks dissecting this article, nit-picking even the 
+premise, I ask that you please write a better one, and post the link 
+instead of complaining. I will then drop by and pick it apart out of 
+professional discourtesy.</p>
+<p>Thanks.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57830">
+      <a title="October 19, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/76">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Barfo_Rama1" target="_blank"><img src="comments_data/45_082.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Barfo_Rama1" target="_blank" class="new-user">Barfo_<wbr>​<wbr>​Rama<wbr>​1</a>
+        </h3>
+        <p>The Cartesian product of 2 sets is the set of all 
+combinations of ordered pairs which can be produced from the elements of
+ both sets.  So the Venn representation would look like two piles of 
+poker chips next to each other, each pile numbering the number of data 
+points in the other bottom chip.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57831">
+      <a title="October 22, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/77">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Leon" target="_blank"><img src="comments_data/45_029.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Leon" target="_blank" class="new-user">Leon</a>
+        </h3>
+        <p>Thanks for this great Tutorial <img src="comments_data/slight_smile.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57832">
+      <a title="October 27, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/78">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Satheesh" target="_blank"><img src="comments_data/45_032.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Satheesh" target="_blank" class="new-user">Satheesh</a>
+        </h3>
+        <p>Nice way to explain things in joins. By seeing the example nobody cannot forget joins.</p>
+<p>Keep it up. Hope you will publish many more article which will be useful to all.</p>
+<p>Thanks,<br>
+Satheesh.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57834">
+      <a title="October 30, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/80">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Brian" target="_blank"><img src="comments_data/45_057.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Brian" target="_blank" class="new-user">Brian</a>
+        </h3>
+        <p>thanks for this, I am in a class for crystal reports and I showed many and it helped them</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57835">
+      <a title="October 31, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/81">Oct '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Jax" target="_blank"><img src="comments_data/45_051.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Jax" target="_blank" class="new-user">Jax</a>
+        </h3>
+        <p>nice quick lesson on joins. This is exactly what i wanted.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57836">
+      <a title="November  2, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/82">Nov '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Martin" target="_blank"><img src="comments_data/45_020.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Martin" target="_blank" class="new-user">Martin</a>
+        </h3>
+        <p>Great explanation of the basics of inner and outer joins.<br>
+I’ll be referring it often and passing it on.<br>
+Also very brave to raise anything here as not 100% perfect equals rubbish</p>
+<p>Martin</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57837">
+      <a title="November  7, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/83">Nov '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Ghislain" target="_blank"><img src="comments_data/45_034.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Ghislain" target="_blank" class="new-user">Ghislain</a>
+        </h3>
+        <p>Very simple, I’am always confused up with sql operations, but I understand better with simple diagrams like yours.<br>
+Thks again for this nice job.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57838">
+      <a title="November 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/84">Nov '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Luke" target="_blank"><img src="comments_data/45_089.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Luke" target="_blank" class="new-user">Luke</a>
+        </h3>
+        <p>Thank god for Venn diagrams! Good job mate.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57839">
+      <a title="November 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/85">Nov '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Clay" target="_blank"><img src="comments_data/45_052.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Clay" target="_blank" class="new-user">Clay</a>
+        </h3>
+        <p>Wow!  Terrific tutorial.  I’ve never understood JOINS beyond the concept of them.  Thank you for demystifying!</p>
+<p>Clay</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57840">
+      <a title="November 14, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/86">Nov '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/JamesP" target="_blank"><img src="comments_data/45_063.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/JamesP" target="_blank" class="new-user">JamesP</a>
+        </h3>
+        <p>Thank you so much for making this available. Cheers from the UK</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57844">
+      <a title="December  7, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/90">Dec '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Derek" target="_blank"><img src="comments_data/45_070.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Derek" target="_blank" class="new-user">Derek</a>
+        </h3>
+        <p>This article is great! A picture is worth a thousand words, and your pictures have helped me to understand SQL joins. Thanks.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57845">
+      <a title="December  8, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/91">Dec '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Hennie" target="_blank"><img src="comments_data/45_015.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Hennie" target="_blank" class="new-user">Hennie</a>
+        </h3>
+        <p>Hey that was a CLEAR explanation … just started up with sqlite<br>
+and didnt get why i was not getting the selection i wanted.</p>
+<p>Now i do!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57846">
+      <a title="December 13, 2007 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/92">Dec '07</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Inquisitor" target="_blank"><img src="comments_data/45_003.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Inquisitor" target="_blank" class="new-user">Inquisitor</a>
+        </h3>
+        <p>how do you join two columns together and get one column in a 
+query.  For EX: i have lastname and firstname columns in a table.  i 
+want to join these two columns together and get lastname and firstname 
+in one column ??</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57848">
+      <a title="January  6, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/94">Jan '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/NED1" target="_blank"><img src="comments_data/45_016.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/NED1" target="_blank" class="new-user">NED<wbr>​1</a>
+        </h3>
+        <p>Although I’m familiar with the topic, I still like your nice and easy way of explaining things, nice work.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57849">
+      <a title="January  8, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/95">Jan '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/SHALL" target="_blank"><img src="comments_data/45_033.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/SHALL" target="_blank" class="new-user">SHALL</a>
+        </h3>
+        <p>This was a GREAT explanation.  I am working with a junior DBA
+ and this has helped tremendously.  I will have to go back and read some
+ of your other blogs.</p>
+<p>AWESOME JOB!!!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57851">
+      <a title="January 25, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/97">Jan '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/GintsP" target="_blank"><img src="comments_data/45_054.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/GintsP" target="_blank" class="new-user">GintsP</a>
+        </h3>
+        <p>As someone suggested to created something themselves and then criticize <img src="comments_data/wink.png" title=":wink:" class="emoji" alt=":wink:"> I’ve tried to describe relationships among various join types using ER diagramm here:<br>
+<a href="http://gplivna.blogspot.com/2008/01/sql-join-types-im-studying-bit-sql.html" rel="nofollow noopener" target="_blank">http://gplivna.blogspot.com/2008/01/sql-join-types-im-studying-bit-sql.html</a><br>
+All comments welcome!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57852">
+      <a title="February  9, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/98">Feb '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Prajeesh" target="_blank"><img src="comments_data/45_027.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Prajeesh" target="_blank" class="new-user">Prajeesh</a>
+        </h3>
+        <p>It’s a great way to explain things…<br>
+thanks</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57853">
+      <a title="February 18, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/99">Feb '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Andy" target="_blank"><img src="comments_data/45_022.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Andy" target="_blank" class="new-user">Andy</a>
+        </h3>
+        <p>Thanks for this Jeff, was struggling a bit with the concept 
+but you’ve made it clear enough that even I can get my head around it <img src="comments_data/slight_smile.png" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57855">
+      <a title="March 11, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/101">Mar '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Arcond" target="_blank"><img src="comments_data/45_061.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Arcond" target="_blank" class="new-user">Arcond</a>
+        </h3>
+        <p>I really have to hand it to you Jeff, the way you break 
+things down is just great.  I read the blogs every time you post one.  
+This one in particular came in handy just the other day.  Our QA team 
+was having trouble understanding what was going on in the database and 
+we developers would send them queries to run to find the data they 
+needed.  The QA team has a rudimentary understanding of SQL, but 
+couldn’t quite grasp joins.  I sent a link to this article to our lead 
+QA, and now your article is firmly posted on her cube wall for 
+reference.  Just wanted to say thank you for the blogs!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57856">
+      <a title="March 11, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/102">Mar '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Ernest" target="_blank"><img src="comments_data/45_038.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Ernest" target="_blank" class="new-user">Ernest</a>
+        </h3>
+        <p>Years ago I had diagrams like this posted on my desk and I 
+refered to it nearly every other day. Thank you for posting this as I am
+ sure I will be refering to it often as I try to understand and explain 
+to others the impacts of SQL statements</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57857">
+      <a title="March 19, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/103">Mar '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/MattG" target="_blank"><img src="comments_data/45_058.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/MattG" target="_blank" class="new-user">MattG</a>
+        </h3>
+        <p>This has been extremely helpful for a project that I am 
+currently working on.  I am by no means a coding expert(not a novice 
+either), but there is a lot of stuff I have yet to learn.  The way this 
+is all displayed with the use of venn diagrams has made it very easy to 
+understand, thanks for the help.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57858">
+      <a title="March 25, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/104">Mar '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/AndrewM" target="_blank"><img src="comments_data/45_079.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/AndrewM" target="_blank" class="new-user">AndrewM</a>
+        </h3>
+        <p>This page is so helpful!</p>
+<p>I am constantly needing to build MySQL queries for my php and .net 
+applications and I come back to this page time and time again to prevent
+ me from having to think too hard!</p>
+<p>Just that one less moment spent on these details when you’re in the middle of solving big problems makes all the difference.</p>
+<p>Thank you!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57866">
+      <a title="June  3, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/112">Jun '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/gayathri" target="_blank"><img src="comments_data/45_081.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/gayathri" target="_blank" class="new-user">gayathri</a>
+        </h3>
+        <p>hi jeff,<br>
+Thanks a lot for this ven diagram explanation. i opened the website 
+without any understanding on sql joins and after reading ur explanation,
+ i’ve understood it so well. really very helpfull.<br>
+Thanks a lot!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57867">
+      <a title="June  4, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/113">Jun '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Isa" target="_blank"><img src="comments_data/45_017.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Isa" target="_blank" class="new-user">Isa</a>
+        </h3>
+        <p>Great explain, thanks a lot.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57868">
+      <a title="June  9, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/114">Jun '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Jolly" target="_blank"><img src="comments_data/45_018.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Jolly" target="_blank" class="new-user">Jolly</a>
+        </h3>
+        <p>Its nice way of explanation of SQL Joins .Too easy!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57873">
+      <a title="June 23, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/119">Jun '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/SivaAnanth" target="_blank"><img src="comments_data/45_086.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/SivaAnanth" target="_blank" class="new-user">Siva<wbr>​Ananth</a>
+        </h3>
+        <p>Excellent way of exhibiting the concept.<br>
+Simple , easy to understand.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57876">
+      <a title="June 25, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/122">Jun '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Charlie" target="_blank"><img src="comments_data/45_060.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Charlie" target="_blank" class="new-user">Charlie</a>
+        </h3>
+        <p>Great and very simply to understand!</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57877">
+      <a title="June 29, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/123">Jun '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Dulcinea" target="_blank"><img src="comments_data/45_045.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Dulcinea" target="_blank" class="new-user">Dulcinea</a>
+        </h3>
+        <p>Great Work, Im teacher, and Iwill use this, to explain de joins.</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57878">
+      <a title="July 17, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/124">Jul '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/Pallavi" target="_blank"><img src="comments_data/45_067.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/Pallavi" target="_blank" class="new-user">Pallavi</a>
+        </h3>
+        <p>Explained very well. Helped me a lot</p>
+
+      </div>
+    </article>
+    <article class="post" id="post-57879">
+      <a title="July 17, 2008 12:00am" class="post-date" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/125">Jul '08</a>
+
+      <div class="author">
+        <a href="https://discourse.codinghorror.com/u/anabel" target="_blank"><img src="comments_data/45_025.png" alt=""></a>
+      </div>
+      <div class="cooked">
+        <h3 class="username">
+          <a href="https://discourse.codinghorror.com/u/anabel" target="_blank" class="new-user">anabel</a>
+        </h3>
+        <p>It’s really great article!!!</p>
+
+      </div>
+    </article>
+
+    <footer class="clearfix">
+      <a target="_blank" href="https://discourse.codinghorror.com/"><img class="logo" src="comments_data/aa4aed9d6276bab017d3991051fbb9177783abee.png"></a>
+      <a class="button" target="_blank" href="https://discourse.codinghorror.com/t/a-visual-explanation-of-sql-joins/455/125">Continue Discussion</a>
+        <span class="replies">66 more replies</span>
+    </footer>
+    <div class="clearfix"></div>
+
+
+  
+
+</body></html>
